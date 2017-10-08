@@ -1,0 +1,15 @@
+{
+  "name": "meanproj",
+  "version": "1.0.0",
+  "description": "Starting point for developing a MEAN stack application",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Cal Colson",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.16.1",
+    "jade": "^1.11.0"
+  }
+}
