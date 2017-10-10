@@ -23,7 +23,13 @@ app.use(stylus.middleware({
 }));
 app.use(express.static(__dirname + '/public'));
 
-mongoose.connect('mongodb://localhost/meanproj', {
+var connectString;
+if (env === 'development') {
+    connectString = 'mongodb://localhost/meanproj';
+} else {
+    connectString = 'mongodb://calcolson:meanproj@ds113785.mlab.com:13785/meanproj';
+}
+mongoose.connect(connectString, {
     useMongoClient: true
 });
 var db = mongoose.connection;
@@ -49,6 +55,6 @@ app.get('*', function(req, res) {
     });
 });
 
-var port = 3030;
+var port = process.env.port || 3030;
 app.listen(port);
 console.log('Listening on port ' + port + '...');
